@@ -1,0 +1,14 @@
+Rough Proposed Stream Cipher Encryption
+
+Input : Plaintext (as hex bytes)
+Output: Ciphertext (as hex bytes)
+1.    Derive a secret key from the WAV file by its audio frames
+2.    lh = Length of the key as number of hex bytes
+3.    for i to length of the plaintext minus 1
+   a.    if i greater than or equal to lh
+         i.    Implement padding
+   b.    else
+         i.    Perform XOR operation between the plaintext's ith hex byte and the key's ith hex byte.
+4.    Return Ciphertext
+
+Decryption would be similar.
