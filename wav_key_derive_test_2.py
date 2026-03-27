@@ -28,22 +28,22 @@ def wav_key_derive_test_2():
         for i in test_audioframe_lengths:
             if i <= number_of_frames:
                 start_time = time.time()
-                cipertext = wav_key_derive.wav_key_derive(filename, i)
+                key = wav_key_derive.wav_key_derive(filename, i)
                 end_time = time.time()
                 elapsed_time = end_time - start_time
 
                 print(f"Number of audio frames: {i}")
-                print(f"Ciphertext Length as number of hex bytes: {len(cipertext)}")
+                print(f"Key Length as number of hex bytes: {len(key.split('\\x')) - 1}")
                 print(f"Key Generation Time: {elapsed_time} seconds\n")
 
         """Key Generation Time with the WAV file's total number of frames."""
         start_time = time.time()
-        cipertext = wav_key_derive.wav_key_derive(filename, number_of_frames)
+        key = wav_key_derive.wav_key_derive(filename, number_of_frames)
         end_time = time.time()
         elapsed_time = end_time - start_time
 
         print(f"Total Number of audio frames: {number_of_frames}")
-        print(f"Ciphertext Length as number of hex bytes: {len(cipertext)}")
+        print(f"Key Length as number of hex bytes: {len(key.split('\\x')) - 1}")
         print(f"Key Generation Time: {elapsed_time} seconds")
         print("----------------------------------------------------------------------------------------------")
         print("----------------------------------------------------------------------------------------------")
