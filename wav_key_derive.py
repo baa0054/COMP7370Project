@@ -24,9 +24,11 @@ def wav_key_derive(wav_file : str, nbr_audio_frames : int, plaintext : str = "")
     data = data.split('\\x')
     key = ''
     for i in range(1, len(data)):
-        """If the hex value has less than 2 characters, skip it."""
+        """If the hex value has less than 2 characters or is not valid, skip it."""
         if len(data[i]) > 1:
-            key += '\\x' + format(int(data[i][0], 16) % 8, 'x') + format(int(data[i][1], 16) % 16, 'x')
+            if (((data[i][0] >= '0' and data[i][0] <= '9') or (data[i][0] >= 'a' and data[i][0] <= 'f')) and
+                ((data[i][1] >= '0' and data[i][1] <= '9') or (data[i][1] >= 'a' and data[i][1] <= 'f'))):
+                key += '\\x' + format(int(data[i][0], 16) % 8, 'x') + format(int(data[i][1], 16) % 16, 'x')
 
     if len(plaintext) != 0:
         plaintext_hex = '\\x' + plaintext.encode('ascii').hex(' ').replace(' ', '\\x')
