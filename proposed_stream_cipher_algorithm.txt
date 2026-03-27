@@ -1,0 +1,23 @@
+Proposed Stream Cipher
+NOTE: It will be based on ASCII.
+
+WAV File Derived Key Generation:
+    Input : WAV filename, Number of Audio Frames, Plaintext
+    Output: Generated Key
+    1. Read the WAV File
+    2. Get the Number of Audio Frames from the WAV File or Set the Number of Audio Frames
+    3.    Derive a secret key from the WAV file by its audio frames as raw data.
+        a.    Retrieve valid hex bytes from the raw data.
+        b.    PerForm Modulo 8 Operation and Modulo 16 Operation on the 1st and 2nd hex digits respectively.
+        c.    If the key length is less than the plaintext length (as numbers of hex bytes)
+            i.    Implement Random padding of ASCII hex bytes to the key.
+    4. Return the generated key.
+
+Encryption:
+Input : Plaintext (as hex bytes)
+Output: Ciphertext (as hex bytes)
+1.    for each hex byte of the plaintext:
+        i.    Perform XOR operation between the plaintext's hex byte and the key's hex byte.
+2.    Return Ciphertext
+
+Decryption will be similar but reverting back to the plaintext.
