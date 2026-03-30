@@ -1,5 +1,6 @@
 import proposed_stream_cipher as psc
 import wav_key_derive as w
+import entropy_test as et
 """
 This Python script tests encryption and decryption of multiple plaintexts.
 """
@@ -13,12 +14,18 @@ def proposed_stream_cipher_test_2():
 
     PLAINTEXT = ["Hello World!", "Python has a great day!", "#$$^^**", "122390"]
 
+    simResults = []
+
     for p in PLAINTEXT:
         print(f"Plaintext: {p}")
         for filename in files:
             print(f"\n\tWAV File: {filename}")
             print("\tEncryption")
             wav_derived_key = w.wav_key_derive(filename, NUMBER_OF_FRAMES, p)
+            #Store and print test results
+            testResults = et.randomness_simulations(wav_derived_key, filename, p)
+            simResults.append(testResults)
+
             ciphertext = psc.proposed_stream_cipher_encrypt(p, wav_derived_key)
             print(f"\tCiphertext: {ciphertext}")
             print("\tDecryption")
@@ -26,5 +33,11 @@ def proposed_stream_cipher_test_2():
             print(f"\tPlaintext After Decryption: {plaintext}")
         print("----------------------------------------------------------------------------------------------")
         print("----------------------------------------------------------------------------------------------")
+    #Shows the test results
+    print("Simulation Report\n")
+    print(f"{'WAV File':<25} | {'Plaintext':<20} | {'Status'}")
+    for res in simResults:
+            print(f"{res['file']:<25} | {res['text']:<20} | {res['status']}")
+        
 if __name__ == "__main__":
     proposed_stream_cipher_test_2()
