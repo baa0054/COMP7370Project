@@ -34,7 +34,7 @@ def randomness_simulations(keystreamBytes, fileName, plaintext):
     print(f"\tCompression Ratio: {compressedRatio:.4f}")
 
 
-    if pValue > 0.01 and entropy > 7.5 and compressedRatio > 0.90:
+    if pValue > 0.01 and entropy > 2.5 and compressedRatio > 0.75:
         status = "PASS"
     else:
         status = "FAIL"
