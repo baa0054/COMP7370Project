@@ -14,13 +14,15 @@ PRE_W = 10
 """
 This Python script tests encryption and decryption of multiple plaintexts.
 """
-NUMBER_OF_FRAMES : int = 1
+NUMBER_OF_FRAMES : int = 10
 
 def proposed_stream_cipher_test_3():
 
 
     files = ['wav_files/Moderato.wav', 'wav_files/sample-1.wav', 'wav_files/sample-2.wav',
-             'wav_files/sample-3.wav', 'wav_files/sample-4.wav', 'wav_files/sample-5.wav']
+             'wav_files/sample-3.wav', 'wav_files/sample-4.wav', 'wav_files/sample-5.wav', 
+             'wav_files/sample-6.wav', 'wav_files/sample-8.wav', 'wav_files/sample-9.wav', 
+             'wav_files/sample-10.wav']
 
     PLAINTEXT = ["This is the best day ever, and I am really having a good time today. "]
 
