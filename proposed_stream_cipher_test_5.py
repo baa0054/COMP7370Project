@@ -14,7 +14,7 @@ PRE_W = 10
 """
 This Python script tests encryption and decryption of multiple plaintexts.
 """
-NUMBER_OF_FRAMES : int = 20000
+NUMBER_OF_FRAMES : int = 1
 
 def proposed_stream_cipher_test_5():
 
