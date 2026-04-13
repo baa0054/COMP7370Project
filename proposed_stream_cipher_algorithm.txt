@@ -8,7 +8,7 @@ WAV File Derived Key Generation:
     2. Get the Number of Audio Frames from the WAV File or Set the Number of Audio Frames
     3.    Derive a secret key from the WAV file by its audio frames as raw data.
         a.    Retrieve valid hex bytes from the raw data.
-        b.    PerForm Modulo 8 Operation and Modulo 16 Operation on the 1st and 2nd hex digits respectively.
+        b.    Perform Modulo 8 Operation and Modulo 16 Operation on the 1st and 2nd hex digits respectively.
         c.    If the key length is less than the plaintext length (as numbers of hex bytes)
             i.    Implement Random padding of ASCII hex bytes to the key.
     4. Return the generated key.
