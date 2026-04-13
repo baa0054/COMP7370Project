@@ -14,7 +14,7 @@ WAV File Derived Key Generation:
     4. Return the generated key.
 
 Encryption:
-Input : Plaintext (as hex bytes)
+Input : Plaintext (as hex bytes), Secret Key (as hex bytes)
 Output: Ciphertext (as hex bytes)
 1.    for each hex byte of the plaintext:
         i.    Perform XOR operation between the plaintext's hex byte and the key's hex byte.
